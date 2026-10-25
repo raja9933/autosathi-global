@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#202923">
+<meta name="description" content="Vehicle repair guides, engine parts information and mechanic services.">
+<title>AutoSathi - Global Vehicle Help</title>
+<style>
+:root{--bg:#f4f5f2;--card:#fff;--dark:#202923;--gold:#f4c44e;--text:#252b27;--muted:#68716b}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,"Noto Sans Bengali",sans-serif;line-height:1.6}
+header{background:var(--dark);color:white;padding:22px 5%;border-bottom:3px solid var(--gold)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.brand{font-size:25px;font-weight:800;color:var(--gold)}
+.brand small{display:block;font-size:12px;letter-spacing:2px;color:white}
+button,a{cursor:pointer}
+.lang{background:var(--gold);border:0;border-radius:8px;padding:10px 14px;font-weight:bold}
+nav{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
+nav button{background:#344139;color:white;border:1px solid #536057;padding:9px 13px;border-radius:8px}
+nav button.active,nav button:hover{background:var(--gold);color:#202923}
+main{max-width:1050px;margin:auto;padding:22px 16px}
+.hero{background:linear-gradient(135deg,#202923,#465348);color:white;border-radius:18px;padding:32px 24px;margin-bottom:22px}
+.hero h1{font-size:clamp(27px,5vw,43px);line-height:1.2;margin:0 0 12px}
+.hero strong{color:var(--gold)}
+.hero p{max-width:680px}
+.search{width:100%;padding:13px;border:1px solid #d3d9d3;border-radius:10px;font-size:16px;margin:8px 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:15px}
+.card{background:var(--card);padding:20px;border-radius:14px;border:1px solid #e0e4df;box-shadow:0 3px 12px #18251b0a}
+.card h3{margin:4px 0 8px}
+.emoji{font-size:29px}
+h2{line-height:1.3}
+.section{margin:22px 0}
+.action{display:inline-block;background:var(--dark);color:white;padding:10px 14px;border-radius:8px;text-decoration:none;border:0;margin:4px 3px 4px 0}
+.action.gold{background:var(--gold);color:var(--dark);font-weight:bold}
+.note{background:#fff8df;padding:14px;border-left:4px solid var(--gold);border-radius:7px}
+footer{background:var(--dark);color:white;text-align:center;padding:24px 16px;margin-top:30px}
+footer a{color:var(--gold)}
+.hidden{display:none!important}
+.small{font-size:13px;color:var(--muted)}
+footer .small{color:#d8ded8}
+@media(max-width:500px){header{padding:18px 4%}.hero{padding:24px 18px}main{padding:16px 12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="top">
+    <div class="brand">AutoSathi <small>GLOBAL VEHICLE HELP</small></div>
+    <button class="lang" id="langBtn" onclick="toggleLanguage()">বাংলা / English</button>
+  </div>
+  <nav>
+    <button class="active" data-page="home" onclick="showPage('home',this)">Home</button>
+    <button data-page="engine" onclick="showPage('engine',this)">Engine Help</button>
+    <button data-page="parts" onclick="showPage('parts',this)">Parts Guide</button>
+    <button data-page="offline" onclick="showPage('offline',this)">Offline Guide</button>
+    <button data-page="business" onclick="showPage('business',this)">Our Business</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="page">
+    <div class="hero">
+      <h1 data-en="Your Vehicle, <strong>Our Guidance</strong>"
+          data-bn="আপনার গাড়ি, <strong>আমাদের পরামর্শ</strong>">
+        Your Vehicle, <strong>Our Guidance</strong>
+      </h1>
+      <p data-en="Explore basic engine care, vehicle parts and practical maintenance guides for drivers and mechanics."
+         data-bn="ইঞ্জিনের যত্ন, যন্ত্রাংশের পরিচয় এবং চালক ও মেকানিকদের জন্য ব্যবহারিক রক্ষণাবেক্ষণ গাইড দেখুন।">
+        Explore basic engine care, vehicle parts and practical maintenance guides for drivers and mechanics.
+      </p>
+      <button class="action gold" onclick="showPage('engine')"
+        data-en="Explore Engine Help" data-bn="ইঞ্জিন গাইড দেখুন">Explore Engine Help</button>
+      <button class="action" onclick="showPage('parts')"
+        data-en="Browse Parts" data-bn="যন্ত্রাংশ দেখুন">Browse Parts</button>
+    </div>
+
+    <input class="search" id="searchBox" type="search"
+      placeholder="Search engine guides and parts..."
+      oninput="searchCards(this.value)">
+
+    <div class="grid">
+      <article class="card searchable" data-search="engine overheating ইঞ্জিন গরম">
+        <div class="emoji">⚙️</div>
+        <h3 data-en="Engine Help" data-bn="ইঞ্জিনের সাহায্য">Engine Help</h3>
+        <p data-en="Learn basic engine care and common warning signs."
+           data-bn="ইঞ্জিনের যত্ন ও সাধারণ সমস্যার লক্ষণ জানুন।">Learn basic engine care and common warning signs.</p>
+        <button class="action" onclick="showPage('engine')"
+          data-en="Read guides" data-bn="গাইড পড়ুন">Read guides</button>
+      </article>
+      <article class="card searchable" data-search="gearbox differential bearing parts গিয়ারবক্স">
+        <div class="emoji">🔩</div>
+        <h3 data-en="Parts Guide" data-bn="যন্ত্রাংশের গাইড">Parts Guide</h3>
+        <p data-en="Understand common vehicle components and their purpose."
+           data-bn="গাড়ির সাধারণ যন্ত্রাংশ ও তাদের কাজ বুঝুন।">Understand common vehicle components and their purpose.</p>
+        <button class="action" onclick="showPage('parts')"
+          data-en="View parts" data-bn="যন্ত্রাংশ দেখুন">View parts</button>
+      </article>
+      <article class="card searchable" data-search="offline saved guide অফলাইন">
+        <div class="emoji">📖</div>
+        <h3 data-en="Offline Guide" data-bn="অফলাইন গাইড">Offline Guide</h3>
+        <p data-en="Read the basic guides included with this app without an internet connection."
+           data-bn="এই অ্যাপে থাকা প্রাথমিক গাইড ইন্টারনেট ছাড়াই পড়ুন।">Read the basic guides included with this app without an internet connection.</p>
+        <button class="action" onclick="showPage('offline')"
+          data-en="Open guide" data-bn="গাইড খুলুন">Open guide</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="engine" class="page hidden">
+    <h2 data-en="Engine Help & Maintenance" data-bn="ইঞ্জিনের সমস্যা ও রক্ষণাবেক্ষণ">Engine Help & Maintenance</h2>
+    <div class="grid">
+      <article class="card searchable" data-search="overheating coolant ইঞ্জিন গরম">
+        <h3 data-en="1. Engine overheating" data-bn="১. ইঞ্জিন অতিরিক্ত গরম">1. Engine overheating</h3>
+        <p data-en="Stop safely if the temperature warning appears. Switch off the engine and let it cool. Never open a hot radiator cap. Ask a qualified mechanic to inspect the cooling system."
+           data-bn="তাপমাত্রার সতর্কতা এলে নিরাপদ স্থানে থামুন। ইঞ্জিন বন্ধ করে ঠান্ডা হতে দিন। গরম রেডিয়েটরের ঢাকনা খুলবেন না। কুলিং সিস্টেম মেকানিককে দিয়ে পরীক্ষা করান।">Stop safely if the temperature warning appears. Switch off the engine and let it cool. Never open a hot radiator cap. Ask a qualified mechanic to inspect the cooling system.</p>
+      </article>
+      <article class="card searchable" data-search="oil engine noise ইঞ্জিন অয়েল শব্দ">
+        <h3 data-en="2. Low oil or unusual noise" data-bn="২. অয়েল কম বা অস্বাভাবিক শব্দ">2. Low oil or unusual noise</h3>
+        <p data-en="Check the oil level according to the vehicle manual. If the oil warning light stays on or a severe knocking noise occurs, stop the engine and seek professional help."
+           data-bn="গাড়ির ম্যানুয়াল অনুযায়ী অয়েলের মাত্রা পরীক্ষা করুন। অয়েল সতর্কবাতি জ্বলতে থাকলে বা জোরে ধাতব শব্দ হলে ইঞ্জিন বন্ধ করে বিশেষজ্ঞের সাহায্য নিন।">Check the oil level according to the vehicle manual. If the oil warning light stays on or a severe knocking noise occurs, stop the engine and seek professional help.</p>
+      </article>
+      <article class="card searchable" data-search="battery starting battery ব্যাটারি">
+        <h3 data-en="3. Starting or battery problems" data-bn="৩. স্টার্টিং বা ব্যাটারির সমস্যা">3. Starting or battery problems</h3>
+        <p data-en="Look for loose or corroded terminals only when safe. Batteries can produce dangerous sparks. Follow the manual and use a trained technician if unsure."
+           data-bn="নিরাপদ হলে ব্যাটারির সংযোগ ঢিলা বা ক্ষয় হয়েছে কি না দেখুন। ব্যাটারি থেকে বিপজ্জনক স্ফুলিঙ্গ হতে পারে। সন্দেহ হলে প্রশিক্ষিত টেকনিশিয়ানের সাহায্য নিন।">Look for loose or corroded terminals only when safe. Batteries can produce dangerous sparks. Follow the manual and use a trained technician if unsure.</p>
+      </article>
+    </div>
+    <p class="note" data-en="Safety: These are general tips, not a diagnosis. Always follow the vehicle manufacturer's manual. Never work under an unsupported vehicle."
+       data-bn="সতর্কতা: এগুলো সাধারণ পরামর্শ, নিশ্চিত রোগ নির্ণয় নয়। গাড়ি প্রস্তুতকারকের ম্যানুয়াল অনুসরণ করুন। সঠিক সাপোর্ট ছাড়া গাড়ির নিচে কাজ করবেন না।">Safety: These are general tips, not a diagnosis. Always follow the vehicle manufacturer's manual. Never work under an unsupported vehicle.</p>
+  </section>
+
+  <section id="parts" class="page hidden">
+    <h2 data-en="Vehicle Parts Guide" data-bn="গাড়ির যন্ত্রাংশের গাইড">Vehicle Parts Guide</h2>
+    <div class="grid">
+      <article class="card searchable" data-search="gearbox transmission গিয়ারবক্স">
+        <div class="emoji">⚙️</div>
+        <h3 data-en="Gearbox / Transmission" data-bn="গিয়ারবক্স / ট্রান্সমিশন">Gearbox / Transmission</h3>
+        <p data-en="Transfers engine power and provides different gear ratios for driving. Symptoms such as gear slipping or unusual noise need proper inspection."
+           data-bn="ইঞ্জিনের শক্তি চাকার দিকে পাঠায় এবং বিভিন্ন গিয়ার অনুপাত দেয়। গিয়ার স্লিপ বা অস্বাভাবিক শব্দ হলে পরীক্ষা করানো দরকার।">Transfers engine power and provides different gear ratios for driving. Symptoms such as gear slipping or unusual noise need proper inspection.</p>
+      </article>
+      <article class="card searchable" data-search="differential axle ডিফারেনশিয়াল">
+        <div class="emoji">🔧</div>
+        <h3 data-en="Differential" data-bn="ডিফারেনশিয়াল">Differential</h3>
+        <p data-en="Allows driven wheels to rotate at different speeds while turning. Noise or oil leakage should be inspected by a mechanic."
+           data-bn="মোড় নেওয়ার সময় চালিত চাকাগুলোকে আলাদা গতিতে ঘুরতে সাহায্য করে। শব্দ বা তেল লিক হলে মেকানিককে দিয়ে পরীক্ষা করান।">Allows driven wheels to rotate at different speeds while turning. Noise or oil leakage should be inspected by a mechanic.</p>
+      </article>
+      <article class="card searchable" data-search="bearing বেয়ারিং">
+        <div class="emoji">⭕</div>
+        <h3 data-en="Bearings" data-bn="বেয়ারিং">Bearings</h3>
+        <p data-en="Support rotating parts and reduce friction. Select the correct size and specification for the exact vehicle model."
+           data-bn="ঘূর্ণায়মান যন্ত্রাংশকে সাপোর্ট দেয় এবং ঘর্ষণ কমায়। নির্দিষ্ট গাড়ির মডেল অনুযায়ী সঠিক মাপ ও স্পেসিফিকেশন বেছে নিন।">Support rotating parts and reduce friction. Select the correct size and specification for the exact vehicle model.</p>
+      </article>
+      <article class="card searchable" data-search="hydraulic হাইড্রোলিক">
+        <div class="emoji">🛠️</div>
+        <h3 data-en="Hydraulic system" data-bn="হাইড্রোলিক সিস্টেম">Hydraulic system</h3>
+        <p data-en="Uses pressurised fluid to transmit force. Leaks or damaged hoses require professional attention; high-pressure fluid can cause serious injury."
+           data-bn="চাপযুক্ত তরলের সাহায্যে শক্তি স্থানান্তর করে। লিক বা ক্ষতিগ্রস্ত হোস হলে বিশেষজ্ঞের সাহায্য নিন; উচ্চচাপের তরল গুরুতর আঘাত করতে পারে।">Uses pressurised fluid to transmit force. Leaks or damaged hoses require professional attention; high-pressure fluid can cause serious injury.</p>
+      </article>
+    </div>
+    <p class="small" data-en="Part fitment depends on the make, model, year and specification. Confirm compatibility before buying."
+       data-bn="যন্ত্রাংশের সামঞ্জস্য গাড়ির ব্র্যান্ড, মডেল, বছর ও স্পেসিফিকেশনের ওপর নির্ভর করে। কেনার আগে মিলিয়ে নিন।">Part fitment depends on the make, model, year and specification. Confirm compatibility before buying.</p>
+  </section>
+
+  <section id="offline" class="page hidden">
+    <h2 data-en="Basic Offline Guide" data-bn="প্রাথমিক অফলাইন গাইড">Basic Offline Guide</h2>
+    <p data-en="This page contains basic information built into the app. Once the page has loaded, these guides may remain available from the browser cache when offline, depending on browser settings. Full offline support will be added in a later step."
+       data-bn="এই পেজে অ্যাপের সঙ্গে যুক্ত প্রাথমিক তথ্য রয়েছে। পেজ লোড হওয়ার পর ব্রাউজারের ক্যাশের ওপর নির্ভর করে কিছু তথ্য অফলাইনে পাওয়া যেতে পারে। পরের ধাপে পূর্ণ অফলাইন সুবিধা যোগ করব।">This page contains basic information built into the app. Once the page has loaded, these guides may remain available from the browser cache when offline, depending on browser settings. Full offline support will be added in a later step.</p>
+    <div class="card">
+      <h3 data-en="Before a trip" data-bn="যাত্রার আগে">Before a trip</h3>
+      <ul>
+        <li data-en="Check tyres and visible damage." data-bn="টায়ার ও দৃশ্যমান ক্ষতি পরীক্ষা করুন।">Check tyres and visible damage.</li>
+        <li data-en="Check lights, brakes and fluid levels according to the manual." data-bn="ম্যানুয়াল অনুযায়ী আলো, ব্রেক ও তরলের মাত্রা পরীক্ষা করুন।">Check lights, brakes and fluid levels according to the manual.</li>
+        <li data-en="Carry emergency contact details and suitable safety equipment." data-bn="জরুরি যোগাযোগের তথ্য ও উপযুক্ত নিরাপত্তা সরঞ্জাম রাখুন।">Carry emergency contact details and suitable safety equipment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="business" class="page hidden">
+    <h2 data-en="Hazra Engineering Works" data-bn="হাজরা ইঞ্জিনিয়ারিং ওয়ার্কস">Hazra Engineering Works</h2>
+    <div class="card">
+      <p data-en="Engine van manufacturing and repair services, gearbox, differential, fabrication and hydraulic service."
+         data-bn="নতুন ইঞ্জিন ভ্যান তৈরি, ইঞ্জিন ভ্যান মেরামতি, গিয়ারবক্স, ডিফারেনশিয়াল, ফ্যাব্রিকেশন ও হাইড্রোলিক সার্ভিস।">Engine van manufacturing and repair services, gearbox, differential, fabrication and hydraulic service.</p>
+      <p><strong>Rajkumar Hazra (RAJA)</strong></p>
+      <p>Achintya Nagar, Pathar Pratima, South 24 Parganas, West Bengal 743383, India</p>
+      <a class="action gold" href="https://hazra-engineering-works.github.io/" target="_blank" rel="noopener">Business Website</a>
+      <a class="action" href="https://youtube.com/c/HAZRAENGINEERINGWORKS" target="_blank" rel="noopener">YouTube</a>
+      <a class="action" href="https://www.facebook.com/HazraEngineeringWork" target="_blank" rel="noopener">Facebook</a>
+      <a class="action" href="https://www.instagram.com/hazraengineeringworks" target="_blank" rel="noopener">Instagram</a>
+      <a class="action" href="https://t.me/HazraEngineeringWorks" target="_blank" rel="noopener">Telegram</a>
+      <a class="action" href="https://maps.app.goo.gl/Q1rHjS59As7dpGof7?g_st=awb" target="_blank" rel="noopener">Find Us</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>AutoSathi — Global Vehicle Help</strong>
+  <p class="small">Independent vehicle information and maintenance guides.</p>
+  <p class="small">AutoSathi is an independent project. It is not affiliated with any vehicle manufacturer.</p>
+</footer>
+
+<script>
+let language = "en";
+
+function showPage(id, button) {
+  document.querySelectorAll(".page").forEach(page => page.classList.add("hidden"));
+  const page = document.getElementById(id);
+  if (page) page.classList.remove("hidden");
+  document.querySelectorAll("nav button").forEach(b => b.classList.remove("active"));
+  const navButton = button || document.querySelector('nav button[data-page="' + id + '"]');
+  if (navButton) navButton.classList.add("active");
+  const search = document.getElementById("searchBox");
+  if (search) search.value = "";
+  searchCards("");
+  window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function toggleLanguage() {
+  language = language === "en" ? "bn" : "en";
+  document.documentElement.lang = language;
+  document.querySelectorAll("[data-en][data-bn]").forEach(el => {
+    el.innerHTML = el.getAttribute("data-" + language);
+  });
+  document.getElementById("langBtn").textContent =
+    language === "en" ? "বাংলা / English" : "English / বাংলা";
+  document.getElementById("searchBox").placeholder =
+    language === "en" ? "Search engine guides and parts..." : "ইঞ্জিন গাইড ও যন্ত্রাংশ খুঁজুন...";
+}
+
+function searchCards(query) {
+  const q = query.toLowerCase().trim();
+  document.querySelectorAll(".searchable").forEach(card => {
+    const content = (card.innerText + " " + (card.dataset.search || "")).toLowerCase();
+    card.classList.toggle("hidden", Boolean(q) && !content.includes(q));
+  });
+}
+</script>
+</body>
+</html>
