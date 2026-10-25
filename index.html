@@ -1,11 +1,14 @@
-
++
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#202923">
-<meta name="description" content="Vehicle repair guides, engine parts information and mechanic services.">
+<meta name="description" content="AutoSathi: engine repair guides, engine van services, vehicle spare parts, mechanic videos and maintenance tips in Bengali and English.">
+<meta name="keywords" content="AutoSathi, engine repair, engine van repair, gearbox, differential, hydraulic service, mechanic videos, vehicle spare parts, ইঞ্জিন মেরামত, ইঞ্জিন ভ্যান রিপেয়ার">
+<meta property="og:title" content="AutoSathi - Global Vehicle Help">
+<meta property="og:description" content="Vehicle repair guides, parts information and mechanic resources.">
 <title>AutoSathi - Global Vehicle Help</title>
 <style>
 :root{--bg:#f4f5f2;--card:#fff;--dark:#202923;--gold:#f4c44e;--text:#252b27;--muted:#68716b}
@@ -41,6 +44,16 @@ footer a{color:var(--gold)}
 .small{font-size:13px;color:var(--muted)}
 footer .small{color:#d8ded8}
 @media(max-width:500px){header{padding:18px 4%}.hero{padding:24px 18px}main{padding:16px 12px}}
+
+.category-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin:18px 0 26px}
+.category-card{display:block;min-width:0;overflow:hidden;text-decoration:none;color:var(--text);background:#fff;border:1px solid #e0e4df;border-radius:14px;box-shadow:0 3px 12px #18251b0a;transition:transform .15s ease,box-shadow .15s ease}
+.category-card:hover{transform:translateY(-2px);box-shadow:0 7px 18px #18251b16}
+.category-card img{display:block;width:100%;height:125px;object-fit:cover;background:#e9ece8}
+.category-card .category-name{padding:10px 8px 12px;text-align:center;font-size:14px;font-weight:700;line-height:1.35;min-height:58px;display:flex;align-items:center;justify-content:center}
+.community-panel{background:#fff;border:1px solid #e0e4df;border-radius:14px;padding:18px;margin:20px 0}
+@media(max-width:700px){.category-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}.category-card img{height:95px}.category-card .category-name{font-size:12px;padding:8px 5px;min-height:54px}}
+@media(max-width:390px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-card img{height:120px}}
+
 </style>
 </head>
 <body>
@@ -79,31 +92,25 @@ footer .small{color:#d8ded8}
       placeholder="Search engine guides and parts..."
       oninput="searchCards(this.value)">
 
-    <div class="grid">
-      <article class="card searchable" data-search="engine overheating ইঞ্জিন গরম">
-        <div class="emoji">⚙️</div>
-        <h3 data-en="Engine Help" data-bn="ইঞ্জিনের সাহায্য">Engine Help</h3>
-        <p data-en="Learn basic engine care and common warning signs."
-           data-bn="ইঞ্জিনের যত্ন ও সাধারণ সমস্যার লক্ষণ জানুন।">Learn basic engine care and common warning signs.</p>
-        <button class="action" onclick="showPage('engine')"
-          data-en="Read guides" data-bn="গাইড পড়ুন">Read guides</button>
-      </article>
-      <article class="card searchable" data-search="gearbox differential bearing parts গিয়ারবক্স">
-        <div class="emoji">🔩</div>
-        <h3 data-en="Parts Guide" data-bn="যন্ত্রাংশের গাইড">Parts Guide</h3>
-        <p data-en="Understand common vehicle components and their purpose."
-           data-bn="গাড়ির সাধারণ যন্ত্রাংশ ও তাদের কাজ বুঝুন।">Understand common vehicle components and their purpose.</p>
-        <button class="action" onclick="showPage('parts')"
-          data-en="View parts" data-bn="যন্ত্রাংশ দেখুন">View parts</button>
-      </article>
-      <article class="card searchable" data-search="offline saved guide অফলাইন">
-        <div class="emoji">📖</div>
-        <h3 data-en="Offline Guide" data-bn="অফলাইন গাইড">Offline Guide</h3>
-        <p data-en="Read the basic guides included with this app without an internet connection."
-           data-bn="এই অ্যাপে থাকা প্রাথমিক গাইড ইন্টারনেট ছাড়াই পড়ুন।">Read the basic guides included with this app without an internet connection.</p>
-        <button class="action" onclick="showPage('offline')"
-          data-en="Open guide" data-bn="গাইড খুলুন">Open guide</button>
-      </article>
+    <h2 data-en="Vehicle Services" data-bn="গাড়ির পরিষেবা">Vehicle Services</h2>
+    <p data-en="Choose a category to explore guides and services." data-bn="গাইড ও পরিষেবা দেখতে একটি বিভাগ বেছে নিন।">Choose a category to explore guides and services.</p>
+    <div class="category-grid">
+      <a class="category-card searchable" href="#" data-search="engine repair ইঞ্জিন মেরামত" onclick="event.preventDefault();showPage('engine')"><img loading="lazy" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=75" alt="Engine Repair" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Engine+Repair';"><div class="category-name" data-en="Engine Repair" data-bn="ইঞ্জিন মেরামত">Engine Repair</div></a>
+      <a class="category-card searchable" href="#" data-search="engine van repair ইঞ্জিন ভ্যান রিপেয়ার" onclick="event.preventDefault();showPage('business')"><img loading="lazy" src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=600&q=75" alt="Engine Van Repair" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Engine+Van+Repair';"><div class="category-name" data-en="Engine Van Repair" data-bn="ইঞ্জিন ভ্যান রিপেয়ার">Engine Van Repair</div></a>
+      <a class="category-card searchable" href="#" data-search="gearbox গিয়ারবক্স" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=600&q=75" alt="Gearbox" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Gearbox';"><div class="category-name" data-en="Gearbox" data-bn="গিয়ারবক্স">Gearbox</div></a>
+      <a class="category-card searchable" href="#" data-search="differential ডিফারেনশিয়াল" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=75" alt="Differential" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Differential';"><div class="category-name" data-en="Differential" data-bn="ডিফারেনশিয়াল">Differential</div></a>
+      <a class="category-card searchable" href="#" data-search="hydraulic service হাইড্রোলিক সার্ভিস" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=75" alt="Hydraulic Service" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Hydraulic+Service';"><div class="category-name" data-en="Hydraulic Service" data-bn="হাইড্রোলিক সার্ভিস">Hydraulic Service</div></a>
+      <a class="category-card searchable" href="#" data-search="fabrication &amp; welding ফ্যাব্রিকেশন ও ওয়েল্ডিং" onclick="event.preventDefault();showPage('business')"><img loading="lazy" src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=75" alt="Fabrication &amp; Welding" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Fabrication+&amp;+Welding';"><div class="category-name" data-en="Fabrication &amp; Welding" data-bn="ফ্যাব্রিকেশন ও ওয়েল্ডিং">Fabrication & Welding</div></a>
+      <a class="category-card searchable" href="#" data-search="spare parts guide যন্ত্রাংশের গাইড" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1635784063381-0c6f7a8f0b43?auto=format&fit=crop&w=600&q=75" alt="Spare Parts Guide" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Spare+Parts+Guide';"><div class="category-name" data-en="Spare Parts Guide" data-bn="যন্ত্রাংশের গাইড">Spare Parts Guide</div></a>
+      <a class="category-card searchable" href="#" data-search="maintenance tips রক্ষণাবেক্ষণ" onclick="event.preventDefault();showPage('offline')"><img loading="lazy" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=75" alt="Maintenance Tips" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Maintenance+Tips';"><div class="category-name" data-en="Maintenance Tips" data-bn="রক্ষণাবেক্ষণ">Maintenance Tips</div></a>
+      <a class="category-card searchable" href="#" data-search="battery &amp; electrical ব্যাটারি ও ইলেকট্রিক" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=600&q=75" alt="Battery &amp; Electrical" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Battery+&amp;+Electrical';"><div class="category-name" data-en="Battery &amp; Electrical" data-bn="ব্যাটারি ও ইলেকট্রিক">Battery & Electrical</div></a>
+      <a class="category-card searchable" href="#" data-search="brake &amp; tyre care ব্রেক ও টায়ার" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=75" alt="Brake &amp; Tyre Care" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Brake+&amp;+Tyre+Care';"><div class="category-name" data-en="Brake &amp; Tyre Care" data-bn="ব্রেক ও টায়ার">Brake & Tyre Care</div></a>
+      <a class="category-card searchable" href="#" data-search="clutch service ক্লাচ সার্ভিস" onclick="event.preventDefault();showPage('parts')"><img loading="lazy" src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=600&q=75" alt="Clutch Service" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Clutch+Service';"><div class="category-name" data-en="Clutch Service" data-bn="ক্লাচ সার্ভিস">Clutch Service</div></a>
+      <a class="category-card searchable" href="#" data-search="cooling system কুলিং সিস্টেম" onclick="event.preventDefault();showPage('engine')"><img loading="lazy" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=75" alt="Cooling System" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Cooling+System';"><div class="category-name" data-en="Cooling System" data-bn="কুলিং সিস্টেম">Cooling System</div></a>
+      <a class="category-card searchable" href="#" data-search="body repair বডি মেরামত" onclick="event.preventDefault();showPage('business')"><img loading="lazy" src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=75" alt="Body Repair" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Body+Repair';"><div class="category-name" data-en="Body Repair" data-bn="বডি মেরামত">Body Repair</div></a>
+      <a class="category-card searchable" href="#" data-search="mechanic videos মেকানিক ভিডিও" onclick="event.preventDefault();showPage('community')"><img loading="lazy" src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=600&q=75" alt="Mechanic Videos" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Mechanic+Videos';"><div class="category-name" data-en="Mechanic Videos" data-bn="মেকানিক ভিডিও">Mechanic Videos</div></a>
+      <a class="category-card searchable" href="#" data-search="find a mechanic মেকানিক খুঁজুন" onclick="event.preventDefault();showPage('community')"><img loading="lazy" src="https://images.unsplash.com/photo-1621905251918-48416bd8575a?auto=format&fit=crop&w=600&q=75" alt="Find a Mechanic" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Find+a+Mechanic';"><div class="category-name" data-en="Find a Mechanic" data-bn="মেকানিক খুঁজুন">Find a Mechanic</div></a>
+      <a class="category-card searchable" href="#" data-search="hazra engineering works হাজরা ইঞ্জিনিয়ারিং ওয়ার্কস" onclick="event.preventDefault();showPage('business')"><img loading="lazy" src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&w=600&q=75" alt="Hazra Engineering Works" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f0f2ee/26352b?text=Hazra+Engineering+Works';"><div class="category-name" data-en="Hazra Engineering Works" data-bn="হাজরা ইঞ্জিনিয়ারিং ওয়ার্কস">Hazra Engineering Works</div></a>
     </div>
   </section>
 
@@ -176,6 +183,24 @@ footer .small{color:#d8ded8}
     </div>
   </section>
 
+
+  <section id="community" class="page hidden">
+    <h2 data-en="Mechanic Community" data-bn="মেকানিক কমিউনিটি">Mechanic Community</h2>
+    <div class="community-panel">
+      <h3 data-en="Share your repair videos" data-bn="আপনার মেরামতের ভিডিও শেয়ার করুন">Share your repair videos</h3>
+      <p data-en="In this first version, mechanics can share a public YouTube video link. Secure mechanic accounts and direct video uploads need a backend and will be added in a later stage."
+         data-bn="এই প্রাথমিক সংস্করণে মেকানিকরা পাবলিক YouTube ভিডিওর লিংক শেয়ার করতে পারবেন। নিরাপদ মেকানিক অ্যাকাউন্ট ও সরাসরি ভিডিও আপলোডের জন্য পরে ব্যাকএন্ড যোগ করতে হবে।">In this first version, mechanics can share a public YouTube video link. Secure mechanic accounts and direct video uploads need a backend and will be added in a later stage.</p>
+      <label for="videoLink" data-en="Public YouTube video URL" data-bn="YouTube ভিডিওর লিংক">Public YouTube video URL</label>
+      <input class="search" id="videoLink" type="url" placeholder="https://www.youtube.com/watch?v=..." aria-label="Public YouTube video URL">
+      <button class="action gold" onclick="openVideoLink()" data-en="Open video link" data-bn="ভিডিও খুলুন">Open video link</button>
+      <p class="small" data-en="Note: this does not publish the video to AutoSathi or save it to a shared feed yet." data-bn="নোট: এতে ভিডিওটি AutoSathi-তে প্রকাশ বা সবার জন্য ফিডে সংরক্ষণ হয় না।">Note: this does not publish the video to AutoSathi or save it to a shared feed yet.</p>
+    </div>
+    <div class="community-panel">
+      <h3 data-en="Mechanic Sign Up / Login" data-bn="মেকানিক সাইন আপ / লগইন">Mechanic Sign Up / Login</h3>
+      <p data-en="Account creation is not active yet. We will add secure sign-in after choosing and configuring a backend service." data-bn="অ্যাকাউন্ট তৈরি এখনো চালু নয়। ব্যাকএন্ড পরিষেবা বেছে নিয়ে সেটআপ করার পর নিরাপদ লগইন যোগ করব।">Account creation is not active yet. We will add secure sign-in after choosing and configuring a backend service.</p>
+    </div>
+  </section>
+
   <section id="business" class="page hidden">
     <h2 data-en="Hazra Engineering Works" data-bn="হাজরা ইঞ্জিনিয়ারিং ওয়ার্কস">Hazra Engineering Works</h2>
     <div class="card">
@@ -213,6 +238,16 @@ function showPage(id, button) {
   if (search) search.value = "";
   searchCards("");
   window.scrollTo({top:0, behavior:"smooth"});
+}
+
+function openVideoLink() {
+  const field = document.getElementById("videoLink");
+  const value = (field.value || "").trim();
+  if (!/^https?:\/\/(www\.)?(youtube\.com|youtu\.be)\//i.test(value)) {
+    alert(language === "bn" ? "দয়া করে একটি বৈধ YouTube লিংক দিন।" : "Please enter a valid YouTube link.");
+    return;
+  }
+  window.open(value, "_blank", "noopener,noreferrer");
 }
 
 function toggleLanguage() {
